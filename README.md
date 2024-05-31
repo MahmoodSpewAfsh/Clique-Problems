@@ -1,4 +1,4 @@
-# Largest Clique Problem Using Quantum Annealing
+# Clique and Largest Clique Problem Using Quantum Annealing
 
 ## Overview
 
