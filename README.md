@@ -45,6 +45,13 @@ To solve the largest clique problem using quantum annealing, we formulate it as 
 ### QUBO Formulation
 The QUBO matrix \( Q \) is derived from the Hamiltonians, where the variables \( x_v \) and \( y_i \) are binary. The goal is to minimize the energy of the Hamiltonian to find the largest clique.
 
+
+## Files
+
+- `clique.ipynb`: This file contains the NP-Complete Version of the clique problem.
+- `MAX_CLIQUE.ipynb`: This file contains the implementation of finding the largest clique in the graph which is NP-Hard.
+- `MAX_CLIQUE.ipynb`: This file contains the implementation of finding the largest clique in the graph which is NP-Hard with log technique.
+
 ## Requirements
 
 ### Software
