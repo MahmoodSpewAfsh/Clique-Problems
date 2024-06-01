@@ -24,23 +24,23 @@ To solve the largest clique problem using quantum annealing, we formulate it as 
 
 1. **Hamiltonian \( H_A \)**:
    Ensures the sum of the binary variables correctly reflects the size constraints of the clique.
-   \[
+   $$\[
    H_A = A \left( 1 - \sum_{i=2}^N y_i \right)^2 + A \left( \sum_{i=2}^N i y_i - \sum_v x_v \right)^2
-   \]
+   \]$$
    where \( y_i \) are auxiliary binary variables representing the possible sizes of the clique, and \( x_v \) are binary variables indicating whether vertex \( v \) is included in the clique.
 
 2. **Hamiltonian \( H_B \)**:
    Ensures the selected vertices form a complete subgraph.
-   \[
+   $$\[
    H_B = B \left[ \frac{1}{2} \left( \sum_{i=2}^N i y_i \right) \left( -1 + \sum_{i=2}^N i y_i \right) - \sum_{(u,v) \in E} x_u x_v \right]
-   \]
+   \]$$
    where \( (u,v) \in E \) represents the edges in the graph.
 
 3. **Hamiltonian \( H_C \)**:
    Maximizes the number of vertices included in the clique.
-   \[
+   $$\[
    H_C = -C \sum_v x_v
-   \]
+   \]$$
 
 ### QUBO Formulation
 The QUBO matrix \( Q \) is derived from the Hamiltonians, where the variables \( x_v \) and \( y_i \) are binary. The goal is to minimize the energy of the Hamiltonian to find the largest clique.
