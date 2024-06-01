@@ -1,12 +1,29 @@
 # Clique and Largest Clique Problem Using Quantum Annealing
-
 ## Overview
 
-This project focuses on finding the largest clique in a given graph using D-Wave's Quantum Annealer. A clique in a graph is a subset of vertices such that every two distinct vertices are adjacent. The largest clique problem, an NP-hard problem, involves finding the maximum complete subgraph within a given graph.
+This repository contains a Python implementation for solving the Clique Decision Problem using quantum annealing on the D-Wave quantum computer and finding the largest clique in a given graph using D-Wave's Quantum Annealer. A clique in a graph is a subset of vertices such that every two distinct vertices are adjacent. The largest clique problem, an NP-hard problem, involves finding the maximum complete subgraph within a given graph.
 
-## Theory
+## Problem Description
 
-### Definition
+### The Clique Decision Problem
+
+The Clique Decision Problem is a fundamental problem in graph theory and computer science. Given an undirected graph \( G = (V, E) \) and an integer \( k \), the problem is to determine whether there exists a subset of \( k \) vertices that form a complete subgraph (clique) in \( G \).
+
+### Formulating the Problem as a QUBO
+
+Quantum Annealing (QA) and the D-Wave system can solve problems expressed in the Quadratic Unconstrained Binary Optimization (QUBO) form. The Clique Decision Problem can be formulated as a QUBO by encoding the constraints and objectives as binary variables:
+
+1. **Binary Variables**: Define a binary variable \( x_{i,j} \) for each vertex \( v_i \) and each position \( j \) in the clique, where \( x_{i,j} = 1 \) if vertex \( v_i \) is in position \( j \) in the clique and \( x_{i,j} = 0 \) otherwise.
+
+2. **Objective Function**: The QUBO objective function \( Q \) is constructed to enforce two conditions:
+   - Exactly \( k \) vertices are selected.
+   - The selected vertices form a clique.
+
+The QUBO objective function is expressed as:
+$$\[ Q(x) = A \sum_{i} (1 - \sum_{j} x_{i,j})^2 + B \sum_{i < j} \sum_{l} x_{i,l} x_{j,l} (1 - A_{ij}) \]$$
+where \( A \) and \( B \) are large positive constants, and \( A_{ij} \) is the adjacency matrix of the graph \( G \).
+
+### Definition of largest clique problem
 A **clique** in an undirected graph \( G = (V, E) \) is a subset of vertices such that every two distinct vertices are connected by an edge. The **largest clique** is the clique of maximum size in the graph.
 
 ### Quantum Annealing Approach
